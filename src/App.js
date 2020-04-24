@@ -9,7 +9,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 //IMPORT TEMPLATES
 import Header from "./templates/Header";
 import Footer from "./templates/Footer";
+import Homepage from "./templates/Homepage/Homepage";
 import Recipe from "./Recipe";
+
 
 
 function App() {
@@ -46,19 +48,21 @@ function App() {
             <Header/>
             <main className={"main-content"}>
                 <Router>
-                    <FontAwesomeIcon icon={faHome}/>
+                    { /*<FontAwesomeIcon icon={faHome}/>
                     <Link to={"/first"}>
                         <span>1stlink</span>
-                    </Link>
-                    <form onSubmit={getSearch} className={"search-form"}>
-                        <input
-                            type={"text"}
-                            value={search}
-                            onChange={updateSearch}
-                        />
-                        <button type={"submit"}>Search</button>
-                    </form>
-                    {/*{recipes.map(recipe => (
+                    </Link>*/ }
+                    <Route path={"/"} component={Homepage}></Route>
+                </Router>
+            </main>
+            <Footer/><form onSubmit={getSearch} className={"search-form"}>
+            <input
+                type={"text"}
+                value={search}
+                onChange={updateSearch}
+            />
+            <button type={"submit"}>Search</button>
+        </form>{/*{recipes.map(recipe => (
                 <Recipe
                     key={recipe.recipe.label}
                     title={recipe.recipe.label}
@@ -66,10 +70,6 @@ function App() {
                     image={recipe.recipe.image}
                 />
             ))}*/}
-                    <Route path={"/first"} component={Footer}/>
-
-                </Router>
-            </main>
         </div>
     );
 }

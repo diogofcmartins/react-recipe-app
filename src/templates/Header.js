@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "../media/images/logo/logo.png"
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 const Header = () => {
     return (
