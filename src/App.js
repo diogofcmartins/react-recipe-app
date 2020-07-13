@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 
 //IMPORT STYLES
 import './App.css';
@@ -48,11 +48,9 @@ function App() {
             <Header/>
             <main className={"main-content"}>
                 <Router>
-                    { /*<FontAwesomeIcon icon={faHome}/>
-                    <Link to={"/first"}>
-                        <span>1stlink</span>
-                    </Link>*/ }
-                    <Route path={"/"} component={Homepage}></Route>
+                    <Switch>
+                        <Route exact path={"/"} component={Homepage} />
+                    </Switch>
                 </Router>
             </main>
             <Footer/><form onSubmit={getSearch} className={"search-form"}>
