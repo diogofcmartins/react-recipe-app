@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 
 //IMPORT STYLES
 import './App.css';
@@ -10,8 +10,8 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Header from "./templates/Header";
 import Footer from "./templates/Footer";
 import Homepage from "./templates/Homepage/Homepage";
+import List from "./templates/List/List";
 import Recipe from "./Recipe";
-
 
 
 function App() {
@@ -47,27 +47,20 @@ function App() {
         <div className="App">
             <Header/>
             <main className={"main-content"}>
-                <Router>
-                    <Switch>
-                        <Route exact path={"/"} component={Homepage} />
-                    </Switch>
-                </Router>
+                <Switch>
+                    <Route exact path={"/"} component={Homepage}/>
+                    <Route path={"/results"} component={List}/>
+                </Switch>
             </main>
-            <Footer/><form onSubmit={getSearch} className={"search-form"}>
-            <input
-                type={"text"}
-                value={search}
-                onChange={updateSearch}
-            />
-            <button type={"submit"}>Search</button>
-        </form>{/*{recipes.map(recipe => (
-                <Recipe
-                    key={recipe.recipe.label}
-                    title={recipe.recipe.label}
-                    calories={recipe.recipe.calories}
-                    image={recipe.recipe.image}
+            <Footer/>
+            <form onSubmit={getSearch} className={"search-form"}>
+                <input
+                    type={"text"}
+                    value={search}
+                    onChange={updateSearch}
                 />
-            ))}*/}
+                <button type={"submit"}>Search</button>
+            </form>
         </div>
     );
 }

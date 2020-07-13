@@ -4,18 +4,18 @@ import Search from "./Search/Search";
 
 const Header = () => {
     return (
-            <header>
-                <div className={"header container-fluid"}>
-                    <div className={"logo-container"}>
-                        <a href={"/"}>
-                            <img src={Logo} alt={"FOOD RECIPES"}/>
-                        </a>
-                    </div>
-                    <div className={"search"}>
-                        <Search />
-                    </div>
+        <header>
+            <div className={"header container-fluid"}>
+                <div className={"logo-container"}>
+                    <a href={"/"}>
+                        <img src={Logo} alt={"FOOD RECIPES"}/>
+                    </a>
                 </div>
-            </header>
+                <div className={"search"}>
+                    <Search/>
+                </div>
+            </div>
+        </header>
     );
 }
 
