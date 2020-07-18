@@ -12,7 +12,7 @@ const Header = () => {
                     </a>
                 </div>
                 <div className={"search"}>
-                    <Search/>
+                    <Search />
                 </div>
             </div>
         </header>
