@@ -1,8 +1,5 @@
 import React from "react";
-import Search from "../Search/Search";
-import Recipe from "../../Recipe";
 class List extends React.Component {
-    //  alert(items);
     constructor(props) {
         super(props);
         this.state = {
