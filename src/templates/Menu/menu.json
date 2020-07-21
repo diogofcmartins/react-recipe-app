@@ -1,0 +1,40 @@
+[
+  {
+    "title": "Recipe Type",
+    "types": [
+      "Soup",
+      "Appetizer Recipes",
+      "Salads",
+      "Bread Recipes & Ideas",
+      "Drink Recipes & Ideas",
+      "Dessert"
+    ]
+  },
+  {
+    "title": "Ingredients",
+    "types": [
+      "Chicken",
+      "Beef",
+      "Pork",
+      "Ham",
+      "Turkey Recipes & Ideas",
+      "Seafood",
+      "Pasta",
+      "Potato"
+    ]
+  },
+  {
+    "title": "Meal Type",
+    "types": [
+      "One Pot",
+      "Comfort Food",
+      "Easy",
+      "Quick",
+      "Budget",
+      "Vegetable",
+      "Healthy Meal",
+      "Gluten Free",
+      "Family"
+    ]
+  }
+]

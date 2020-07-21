@@ -12,6 +12,7 @@ import List from "./templates/Recipe/List";
 import NoRecipe from "./templates/Recipe/NoRecipe"
 import ApiError from "./API/ApiError/ApiError";
 import NotFound from "./templates/NotFound/NotFound";
+import Menu from "./templates/Menu/Menu";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                     <Route path={"/recipe-list"} component={List}/>
                     <Route path={"/no-recipe"} component={NoRecipe}/>
                     <Route path={"/api-error"} component={ApiError}/>
+                    <Route path={"/menu"} component={Menu}/>
                     <Route component={NotFound}/>
                 </Switch>
             </main>
