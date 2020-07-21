@@ -7,9 +7,8 @@ export async function fetchData(searchValue) {
         const response = await fetch(
             `https://api.edamam.com/search?q=${searchValue}&app_id=${apiId}&app_key=${apiKey}`
         );
-
         return await response.json();
     } catch (error) {
-        console.log("Error: ", error);
+        console.log(error)
     }
 }

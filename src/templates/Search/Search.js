@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {fetchData} from "../../API/api-connect";
 import {Redirect} from "react-router-dom";
-import Recipe from "../../Recipe";
 
 const Search = () => {
     const [recipes, setRecipes] = useState([]);
@@ -13,13 +12,17 @@ const Search = () => {
     useEffect(() => {
         async function getSearch() {
             const data = await fetchData(search);
-            setRecipes(data.hits);
-            if (data.hits.length > 0) {
-                setSuccess(true);
-                setSearched(search);
-                console.log(searched);
-                setSearch("");
-                document.getElementById("search-error").style.display = "none";
+
+            try {
+                await setRecipes(data.hits);
+
+                if (recipes.length > 0) {
+                    setSuccess(true);
+                    setSearched(search);
+                    setSearch("");
+                }
+            } catch (e) {
+                console.log(e);
             }
         }
 
@@ -27,13 +30,6 @@ const Search = () => {
 
 
     }, [query]);
-
-
-    const checkFetch = () => {
-        console.log(recipes);
-        console.log(recipes.length);
-
-    }
 
     const updateSearch = e => {
         e.preventDefault();
@@ -44,10 +40,9 @@ const Search = () => {
         e.preventDefault();
 
         if (search !== "") {
+            setRecipes([])
             setQuery(search);
         }
-
-
     }
 
     return (
@@ -59,12 +54,11 @@ const Search = () => {
                     onChange={updateSearch}
                 />
                 <button type={"submit"}>Search</button>
-                <div id={"search-error"}>No results found.</div>
             </form>
-            {console.log(recipes)}
+
             {success === true &&
             <Redirect to={{
-                pathname: '/results',
+                pathname: '/recipe-list',
                 state: {results: recipes, search: searched}
             }}/>
             }
