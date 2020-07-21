@@ -15,8 +15,7 @@ const Search = () => {
 
             try {
                 await setRecipes(data.hits);
-
-                if (recipes.length > 0) {
+                if (data.hits.length > 0) {
                     setSuccess(true);
                     setSearched(search);
                     setSearch("");
@@ -40,7 +39,7 @@ const Search = () => {
         e.preventDefault();
 
         if (search !== "") {
-            setRecipes([])
+            setRecipes([]);
             setQuery(search);
         }
     }
