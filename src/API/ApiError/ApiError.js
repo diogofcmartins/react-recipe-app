@@ -1,9 +1,10 @@
 import React from "react";
 
-const NoRecipe = (props) => {
+const ApiError = () => {
     return (
-        <div id={"api-error"}>API ERROR: {props.error}</div>
+        <div id={"api-error"}>API ERROR: Failed to fetch data from API.</div>
     );
 }
 
-export default NoRecipe;
+export default ApiError;
+

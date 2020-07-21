@@ -8,7 +8,7 @@ const Search = () => {
     const [search, setSearch] = useState("");
     const [searched, setSearched] = useState("");
     const [success, setSuccess] = useState(false);
-
+    const [apiError, setApiError] = useState(false);
     useEffect(() => {
         async function getSearch() {
             const data = await fetchData(search);
@@ -22,11 +22,11 @@ const Search = () => {
                 }
             } catch (e) {
                 console.log(e);
+                setApiError(true);
             }
         }
 
         getSearch();
-
 
     }, [query]);
 
@@ -61,6 +61,11 @@ const Search = () => {
                 state: {results: recipes, search: searched}
             }}/>
             }
+
+            {apiError === true &&
+            <Redirect to={{
+                pathname: '/api-error'
+            }}/>}
         </div>
     );
 }
